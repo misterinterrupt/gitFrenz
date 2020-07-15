@@ -25,7 +25,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Friends on Github", displayMode: .inline)
+            .navigationBarTitle("gitfrenz", displayMode: .inline)
             .navigationBarItems(leading: (
                 Button(action: {
                     withAnimation(.spring()) {

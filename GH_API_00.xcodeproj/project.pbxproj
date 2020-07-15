@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4705A029DC36294EC7D777E8 /* Pods_GH_API_00.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FC1281BDE4FF9DF245F11F /* Pods_GH_API_00.framework */; };
 		BAF3A8D424BE876300FEA9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D324BE876300FEA9E0 /* AppDelegate.swift */; };
 		BAF3A8D624BE876300FEA9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D524BE876300FEA9E0 /* SceneDelegate.swift */; };
 		BAF3A8D824BE876300FEA9E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D724BE876300FEA9E0 /* ContentView.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73C313CC0E0F0275470A1320 /* Pods-GH_API_00.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GH_API_00.debug.xcconfig"; path = "Target Support Files/Pods-GH_API_00/Pods-GH_API_00.debug.xcconfig"; sourceTree = "<group>"; };
+		83B5133C909FFB6D41E211CD /* Pods-GH_API_00.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GH_API_00.release.xcconfig"; path = "Target Support Files/Pods-GH_API_00/Pods-GH_API_00.release.xcconfig"; sourceTree = "<group>"; };
 		BAF3A8D024BE876300FEA9E0 /* GH_API_00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GH_API_00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF3A8D324BE876300FEA9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF3A8D524BE876300FEA9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		BAF3A8DC24BE876400FEA9E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAF3A8DF24BE876400FEA9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAF3A8E124BE876400FEA9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2FC1281BDE4FF9DF245F11F /* Pods_GH_API_00.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GH_API_00.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4705A029DC36294EC7D777E8 /* Pods_GH_API_00.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4F6EB0D269C2A913EDE5C45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2FC1281BDE4FF9DF245F11F /* Pods_GH_API_00.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A571A3D0DD506C2A8FBFBC2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73C313CC0E0F0275470A1320 /* Pods-GH_API_00.debug.xcconfig */,
+				83B5133C909FFB6D41E211CD /* Pods-GH_API_00.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BAF3A8C724BE876300FEA9E0 = {
 			isa = PBXGroup;
 			children = (
 				BAF3A8D224BE876300FEA9E0 /* GH_API_00 */,
 				BAF3A8D124BE876300FEA9E0 /* Products */,
+				A571A3D0DD506C2A8FBFBC2C /* Pods */,
+				A4F6EB0D269C2A913EDE5C45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAF3A8E424BE876400FEA9E0 /* Build configuration list for PBXNativeTarget "GH_API_00" */;
 			buildPhases = (
+				F49F256FB0F5584EE274AF07 /* [CP] Check Pods Manifest.lock */,
 				BAF3A8CC24BE876300FEA9E0 /* Sources */,
 				BAF3A8CD24BE876300FEA9E0 /* Frameworks */,
 				BAF3A8CE24BE876300FEA9E0 /* Resources */,
+				0F841D0044A23D5AFB8CFDDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F841D0044A23D5AFB8CFDDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GH_API_00/Pods-GH_API_00-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GH_API_00/Pods-GH_API_00-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GH_API_00/Pods-GH_API_00-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F49F256FB0F5584EE274AF07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GH_API_00-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BAF3A8CC24BE876300FEA9E0 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		BAF3A8E524BE876400FEA9E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73C313CC0E0F0275470A1320 /* Pods-GH_API_00.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -289,6 +359,7 @@
 				DEVELOPMENT_TEAM = 7CVP8N8AP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GH_API_00/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +373,7 @@
 		};
 		BAF3A8E624BE876400FEA9E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83B5133C909FFB6D41E211CD /* Pods-GH_API_00.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,6 +381,7 @@
 				DEVELOPMENT_TEAM = 7CVP8N8AP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GH_API_00/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

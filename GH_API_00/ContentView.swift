@@ -70,7 +70,7 @@ struct FriendsView: View {
     
     func addFriend() {
         if newFriendName.isEmpty || newGHUsername.isEmpty { return }
-        self.friendState.addFriend(newFriendName, URL(string: "https://github.com/\(newGHUsername)")!)
+        self.friendState.addFriend(newFriendName, newGHUsername)
         newFriendName = ""
         newGHUsername = ""
     }
@@ -119,6 +119,8 @@ struct FriendsView: View {
                             }
                          }
                     }
+                    .transition(AnyTransition.slide)
+                    .animation(.easeInOut)
                 }
                 VStack(alignment: .leading, spacing: 2.5) {
                     ForEach(self.friendState.friends, id: \.self) { (friend:Friend) in
@@ -126,13 +128,13 @@ struct FriendsView: View {
                             HStack {
                                 Text("name:")
                                     .foregroundColor(.gray).bold()
-                                Text(friend.keys.first ?? "no name")
+                                Text(friend.keys.first ?? "no friend name")
                                     .foregroundColor(.white)
                             }
                             HStack {
                                 Text("url:")
                                     .foregroundColor(.gray).bold()
-                                Text(friend.values.first?.absoluteString ?? "no url")
+                                Text(friend.values.first ?? "no gh username")
                                     .foregroundColor(.white)
                             }
                         }
@@ -248,12 +250,12 @@ struct MenuView: View {
 
 func getTestFriends() -> FriendState {
     FriendState.shared.clearFriends()
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
-    FriendState.shared.addFriend("test", URL(string:"https://github.com/test")!)
+    FriendState.shared.addFriend("test1", "test1")
+    FriendState.shared.addFriend("test2", "test2")
+    FriendState.shared.addFriend("test3", "test3")
+    FriendState.shared.addFriend("test4", "test4")
+    FriendState.shared.addFriend("test5", "test5")
+    FriendState.shared.addFriend("test6", "test6")
 //    FriendState.shared.toggleMenu()
     return FriendState.shared
 }

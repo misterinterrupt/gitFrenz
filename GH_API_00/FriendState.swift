@@ -8,8 +8,10 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
+import SwiftyJSON
 
-typealias Friend = [String:URL]
+typealias Friend = [String:String]
 
 public class FriendState: ObservableObject {
     
@@ -34,13 +36,28 @@ public class FriendState: ObservableObject {
         selectedPage = page
     }
     
-    public func addFriend(_ name: String, _ ghURL: URL) {
-        let newFriend = [name:ghURL]
+    public func addFriend(_ name: String, _ ghusername: String) {
+        let newFriend = [name:ghusername]
         friends.append(newFriend)
+        fetchFriendRepos(ghusername)
     }
     
     public func clearFriends() {
         friends.removeAll()
+    }
+    
+    private func fetchFriendRepos(_ ghusername: String) {
+        let url = "https://api.github.com/users/\(ghusername)"
+        AF.request(url).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                debugPrint(json)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }

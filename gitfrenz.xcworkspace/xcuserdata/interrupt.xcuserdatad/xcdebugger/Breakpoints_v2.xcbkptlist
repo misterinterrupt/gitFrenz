@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B383555A-CF3B-4FE1-A314-6FF045367C63"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16433F3B-D695-4367-9A0C-11155748C0AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GH_API_00/FriendState.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "fetchFriendRepos(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D12C13A-6C50-416A-BAFA-70F1C45FB220"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GH_API_00/FriendState.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchFriendRepos(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C92402A8-D693-42BE-B9C8-6F41DCFA3280"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GH_API_00/FriendState.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "fetchFriendRepos(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C92402A8-D693-42BE-B9C8-6F41DCFA3280 - aa4ce981c6c54892"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GH_API_00.FriendState.(fetchFriendRepos in _5A8541A3ED147A0E2DE67BA91895B8EA)(Swift.String) -&gt; ()"
+                  moduleName = "GH_API_00"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/interrupt/PROJECTS/ExampleCodes/GH_API_00/GH_API_00/FriendState.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "C92402A8-D693-42BE-B9C8-6F41DCFA3280 - a168fbe837062b94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in GH_API_00.FriendState.(fetchFriendRepos in _5A8541A3ED147A0E2DE67BA91895B8EA)(Swift.String) -&gt; ()"
+                  moduleName = "GH_API_00"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/interrupt/PROJECTS/ExampleCodes/GH_API_00/GH_API_00/FriendState.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

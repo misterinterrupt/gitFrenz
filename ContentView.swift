@@ -35,7 +35,6 @@ struct ContentView: View {
                 }
         }
 
-        
         return NavigationView {
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
@@ -90,10 +89,9 @@ struct FriendsView: View {
     @EnvironmentObject var friendState: FriendState
     
     @State private(set) var addFriendShowing = false
+    @State private(set) var removeFriendsShowing = false
     @State var newFriendName = ""
     @State var newGHUsername = ""
-    
-    
     
     func addFriend() {
         if newFriendName.isEmpty || newGHUsername.isEmpty { return }
@@ -104,6 +102,10 @@ struct FriendsView: View {
     
     func toggleAddFriend() {
         self.addFriendShowing = !addFriendShowing
+    }
+    
+    func toggleRemoveFriends() {
+        self.removeFriendsShowing = !removeFriendsShowing
     }
     
     var body: some View {
@@ -117,7 +119,16 @@ struct FriendsView: View {
                             self.toggleAddFriend()
                         }
                     }) {
-                        Image(systemName: self.addFriendShowing ? "x.circle" : "plus.circle")
+                        Image(systemName: self.addFriendShowing ? "x.circle" : "person.crop.circle.badge.plus")
+                            .imageScale(.large)
+                            .foregroundColor(Color.white)
+                    }
+                    Button(action: {
+                        withAnimation {
+                            self.toggleRemoveFriends()
+                        }
+                    }) {
+                        Image(systemName: self.removeFriendsShowing ? "x.circle" : "person.crop.circle.badge.minus")
                             .imageScale(.large)
                             .foregroundColor(Color.white)
                     }
@@ -151,18 +162,31 @@ struct FriendsView: View {
                 }
                 VStack(alignment: .leading, spacing: 2.5) {
                     ForEach(self.friendState.friends, id: \.self) { (friend:DFriend) in
-                        VStack(alignment: .leading, spacing: 2.0) {
-                            HStack {
-                                Text("name:")
-                                    .foregroundColor(.gray).bold()
-                                Text(friend.name)
-                                    .foregroundColor(.white)
+                        HStack {
+                            if self.removeFriendsShowing {
+                                Button(action: {
+                                    withAnimation {
+                                        self.friendState.removeFriend(friend.name)
+                                    }
+                                }) {
+                                    Image(systemName: "minus.circle")
+                                        //                                     .imageScale(.small)
+                                        .foregroundColor(Color.white)
+                                }
                             }
-                            HStack {
-                                Text("url:")
-                                    .foregroundColor(.gray).bold()
-                                Text(friend.githubUsername)
-                                    .foregroundColor(.white)
+                            VStack(alignment: .leading, spacing: 2.0) {
+                                HStack {
+                                    Text("name:")
+                                        .foregroundColor(.gray).bold()
+                                    Text(friend.name)
+                                        .foregroundColor(.white)
+                                }
+                                HStack {
+                                    Text("url:")
+                                        .foregroundColor(.gray).bold()
+                                    Text(friend.githubUsername)
+                                        .foregroundColor(.white)
+                                }
                             }
                         }
                     }

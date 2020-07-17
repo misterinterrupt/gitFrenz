@@ -103,7 +103,7 @@ extension FriendState {
         } catch let error as NSError {
             print("Couldn't fetch Friend to delete. \(error)")
         }
-        
+        CoreDataContext.shared.saveChanges()
     }
     
     public func clearFriends() {

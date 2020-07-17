@@ -12,8 +12,31 @@ struct ContentView: View {
     
     @EnvironmentObject var friendState: FriendState
     
+    
     var body: some View {
-        NavigationView {
+        
+        let dragFromRight = DragGesture()
+            .onEnded { dragValue in
+                if dragValue.translation.width < -100 {
+                    withAnimation {
+                        self.friendState.toggleMenu()
+                    }
+                }
+        }
+
+        let dragFromLeft = DragGesture()
+            .onEnded { dragValue in
+                if dragValue.translation.width > 100 {
+                    withAnimation {
+                        if !self.friendState.menuShowing {
+                            self.friendState.toggleMenu()
+                        }
+                    }
+                }
+        }
+
+        
+        return NavigationView {
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
                     MainView()
@@ -22,6 +45,7 @@ struct ContentView: View {
                     if (self.friendState.menuShowing) {
                         MenuView()
                             .frame(width: geo.size.width/2, height: geo.size.height, alignment: .leading)
+                            .gesture(dragFromRight)
                     }
                 }
             }
@@ -37,6 +61,7 @@ struct ContentView: View {
                         .imageScale(.large).scaleEffect(1.5)
                 }
             ))
+            .gesture(dragFromLeft)
         }
     }
 }
@@ -67,6 +92,8 @@ struct FriendsView: View {
     @State private(set) var addFriendShowing = false
     @State var newFriendName = ""
     @State var newGHUsername = ""
+    
+    
     
     func addFriend() {
         if newFriendName.isEmpty || newGHUsername.isEmpty { return }

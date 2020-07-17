@@ -12,32 +12,21 @@ import Combine
 import SwiftyJSON
 import CoreData
 
-typealias FriendData = [String:String]
-
 public class FriendState: ObservableObject {
     
     public static let shared = FriendState()
     
     private init() {
-        // connect CD publisher to friends, repos, activity
-        CDPublisher(request: Friend.fetchRequest(), context: CoreDataContext.shared.viewContext)
-        .map {
-            $0.map {
-                DFriend(id: $0.id!, name: $0.name!, githubUsername: $0.githubUsername!)
-            }
-        }
-        .receive(on: DispatchQueue.main)
-        .replaceError(with: [])
-        .sink { [weak self] newFriends in
-            self?.friends = newFriends
-        }
-        .store(in: &cancellables)
+        setupCDPublishing()
     }
         
     private var cancellables = [AnyCancellable]()
     
     @Published
     var friends = [DFriend]()
+    
+    @Published
+    var repositories = [DRepository]()
 
     @Published
     private(set) var menuShowing: Bool = false
@@ -53,6 +42,42 @@ public class FriendState: ObservableObject {
         selectedPage = page
     }
     
+    func setupCDPublishing() {
+        CDPublisher(request: Friend.fetchRequest(), context: CoreDataContext.shared.viewContext)
+        .map {
+            $0.map {
+                DFriend(id: $0.id!, name: $0.name!, githubUsername: $0.githubUsername!)
+            }
+        }
+        .receive(on: DispatchQueue.main)
+        .replaceError(with: [])
+        .sink { [weak self] newFriends in
+            self?.friends = newFriends
+        }
+        .store(in: &cancellables)
+        
+        CDPublisher(request: Repository.fetchRequest(), context: CoreDataContext.shared.viewContext)
+        .map {
+            $0.map {
+                DRepository(id: $0.id!, url: $0.url!, name: $0.name!, lastCommit: $0.lastCommit!)
+            }
+        }
+        .receive(on: DispatchQueue.main)
+        .replaceError(with: [])
+        .sink { [weak self] newRepos in
+            self?.repositories = newRepos
+        }
+        .store(in: &cancellables)
+    }
+
+    
+
+    
+}
+
+// DAO-ish extension
+extension FriendState {
+    
     public func addFriend(_ name: String, _ ghUsername: String) {
         let newFriend = NSEntityDescription
             .insertNewObject(forEntityName: "Friend",
@@ -64,6 +89,21 @@ public class FriendState: ObservableObject {
         CoreDataContext.shared.saveChanges()
 
         fetchFriendRepos(ghUsername)
+    }
+    
+    public func removeFriend(_ name: String) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Friend")
+        let predicate = NSPredicate(format: "%K == %@", "name", name)
+        fetchRequest.predicate = predicate
+        do {
+            let records = try CoreDataContext.shared.viewContext.fetch(fetchRequest) as! [NSManagedObject]
+            if let record = records.first {
+                CoreDataContext.shared.viewContext.delete(record)
+            }
+        } catch let error as NSError {
+            print("Couldn't fetch Friend to delete. \(error)")
+        }
+        
     }
     
     public func clearFriends() {
@@ -91,7 +131,6 @@ public class FriendState: ObservableObject {
 //            }
 //        }
     }
-    
 }
 
 public enum Page {

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA51E07124C11E7000647972 /* CDPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51E07024C11E7000647972 /* CDPublisher.swift */; };
+		BAC9C1BA24BFA1A500880029 /* FrenzModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1A624BF8CE900880029 /* FrenzModel.xcdatamodeld */; };
+		BAC9C1BD24BFA2EA00880029 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B324BFA04E00880029 /* Friend+CoreDataClass.swift */; };
+		BAC9C1BE24BFA2EC00880029 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B224BFA04E00880029 /* Friend+CoreDataProperties.swift */; };
+		BAC9C1BF24BFA30600880029 /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B424BFA04E00880029 /* Repository+CoreDataClass.swift */; };
+		BAC9C1C024BFA30600880029 /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B524BFA04E00880029 /* Repository+CoreDataProperties.swift */; };
+		BAC9C1C224BFB7AE00880029 /* CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1C124BFB7AD00880029 /* CoreDataContext.swift */; };
 		BAF3A8D424BE876300FEA9E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D324BE876300FEA9E0 /* AppDelegate.swift */; };
 		BAF3A8D624BE876300FEA9E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D524BE876300FEA9E0 /* SceneDelegate.swift */; };
 		BAF3A8D824BE876300FEA9E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3A8D724BE876300FEA9E0 /* ContentView.swift */; };
@@ -19,9 +26,14 @@
 
 /* Begin PBXFileReference section */
 		418EA87D12DFBEDBAA046C14 /* Pods-gitfrenz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitfrenz.debug.xcconfig"; path = "Target Support Files/Pods-gitfrenz/Pods-gitfrenz.debug.xcconfig"; sourceTree = "<group>"; };
-		73C313CC0E0F0275470A1320 /* Pods-GH_API_00.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GH_API_00.debug.xcconfig"; path = "Target Support Files/Pods-GH_API_00/Pods-GH_API_00.debug.xcconfig"; sourceTree = "<group>"; };
-		83B5133C909FFB6D41E211CD /* Pods-GH_API_00.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GH_API_00.release.xcconfig"; path = "Target Support Files/Pods-GH_API_00/Pods-GH_API_00.release.xcconfig"; sourceTree = "<group>"; };
 		A1B2B7289202204AF2BBE895 /* Pods-gitfrenz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitfrenz.release.xcconfig"; path = "Target Support Files/Pods-gitfrenz/Pods-gitfrenz.release.xcconfig"; sourceTree = "<group>"; };
+		BA51E07024C11E7000647972 /* CDPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDPublisher.swift; sourceTree = "<group>"; };
+		BAC9C1A724BF8CE900880029 /* FrenzModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FrenzModel.xcdatamodel; sourceTree = "<group>"; };
+		BAC9C1B224BFA04E00880029 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAC9C1B324BFA04E00880029 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAC9C1B424BFA04E00880029 /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAC9C1B524BFA04E00880029 /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAC9C1C124BFB7AD00880029 /* CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContext.swift; sourceTree = "<group>"; };
 		BAF3A8D024BE876300FEA9E0 /* gitfrenz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gitfrenz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF3A8D324BE876300FEA9E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF3A8D524BE876300FEA9E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,21 +69,34 @@
 		A571A3D0DD506C2A8FBFBC2C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				73C313CC0E0F0275470A1320 /* Pods-GH_API_00.debug.xcconfig */,
-				83B5133C909FFB6D41E211CD /* Pods-GH_API_00.release.xcconfig */,
 				418EA87D12DFBEDBAA046C14 /* Pods-gitfrenz.debug.xcconfig */,
 				A1B2B7289202204AF2BBE895 /* Pods-gitfrenz.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BAC9C1A924BF9D2400880029 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				BAC9C1B324BFA04E00880029 /* Friend+CoreDataClass.swift */,
+				BAC9C1B224BFA04E00880029 /* Friend+CoreDataProperties.swift */,
+				BAC9C1B424BFA04E00880029 /* Repository+CoreDataClass.swift */,
+				BAC9C1B524BFA04E00880029 /* Repository+CoreDataProperties.swift */,
+				BAC9C1A624BF8CE900880029 /* FrenzModel.xcdatamodeld */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		BAF3A8C724BE876300FEA9E0 = {
 			isa = PBXGroup;
 			children = (
+				BAC9C1A924BF9D2400880029 /* models */,
 				BAF3A8D324BE876300FEA9E0 /* AppDelegate.swift */,
 				BAF3A8D524BE876300FEA9E0 /* SceneDelegate.swift */,
 				BAF3A8D724BE876300FEA9E0 /* ContentView.swift */,
 				BAF3A8E724BE90F800FEA9E0 /* FriendState.swift */,
+				BAC9C1C124BFB7AD00880029 /* CoreDataContext.swift */,
+				BA51E07024C11E7000647972 /* CDPublisher.swift */,
 				BAF3A8D924BE876400FEA9E0 /* Assets.xcassets */,
 				BAF3A8DE24BE876400FEA9E0 /* LaunchScreen.storyboard */,
 				BAF3A8E124BE876400FEA9E0 /* Info.plist */,
@@ -213,10 +238,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC9C1BA24BFA1A500880029 /* FrenzModel.xcdatamodeld in Sources */,
+				BAC9C1BF24BFA30600880029 /* Repository+CoreDataClass.swift in Sources */,
+				BAC9C1C024BFA30600880029 /* Repository+CoreDataProperties.swift in Sources */,
+				BAC9C1BD24BFA2EA00880029 /* Friend+CoreDataClass.swift in Sources */,
+				BAC9C1BE24BFA2EC00880029 /* Friend+CoreDataProperties.swift in Sources */,
 				BAF3A8D424BE876300FEA9E0 /* AppDelegate.swift in Sources */,
-				BAF3A8E824BE90F800FEA9E0 /* FriendState.swift in Sources */,
+				BAC9C1C224BFB7AE00880029 /* CoreDataContext.swift in Sources */,
 				BAF3A8D624BE876300FEA9E0 /* SceneDelegate.swift in Sources */,
+				BA51E07124C11E7000647972 /* CDPublisher.swift in Sources */,
 				BAF3A8D824BE876300FEA9E0 /* ContentView.swift in Sources */,
+				BAF3A8E824BE90F800FEA9E0 /* FriendState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -338,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -414,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAC9C1A624BF8CE900880029 /* FrenzModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAC9C1A724BF8CE900880029 /* FrenzModel.xcdatamodel */,
+			);
+			currentVersion = BAC9C1A724BF8CE900880029 /* FrenzModel.xcdatamodel */;
+			path = FrenzModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BAF3A8C824BE876300FEA9E0 /* Project object */;
 }

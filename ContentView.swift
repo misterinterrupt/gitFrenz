@@ -123,18 +123,18 @@ struct FriendsView: View {
                     .animation(.easeInOut)
                 }
                 VStack(alignment: .leading, spacing: 2.5) {
-                    ForEach(self.friendState.friends, id: \.self) { (friend:Friend) in
+                    ForEach(self.friendState.friends, id: \.self) { (friend:DFriend) in
                         VStack(alignment: .leading, spacing: 2.0) {
                             HStack {
                                 Text("name:")
                                     .foregroundColor(.gray).bold()
-                                Text(friend.keys.first ?? "no friend name")
+                                Text(friend.name)
                                     .foregroundColor(.white)
                             }
                             HStack {
                                 Text("url:")
                                     .foregroundColor(.gray).bold()
-                                Text(friend.values.first ?? "no gh username")
+                                Text(friend.githubUsername)
                                     .foregroundColor(.white)
                             }
                         }

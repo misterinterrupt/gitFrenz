@@ -5,6 +5,9 @@
 //  Created by m interrupt on 7/16/20.
 //  Copyright © 2020 m interrupt. All rights reserved.
 //
+//  Manages subscriptions internally, publishes changes from CoreData FetchRequest
+//  Manually sends NSFetchedResultsControllerDelegate updates thru CurrentValueSubject::send
+//  Generic types keep the OutPut and Failure of Publisher and Subscriber in sync
 
 import Foundation
 import Combine
@@ -47,7 +50,7 @@ class CDPublisher<Entity>: NSObject, NSFetchedResultsControllerDelegate, Publish
             } catch {
                 subject.send(completion: .failure(error))
             }
-            resultController = controller as?NSFetchedResultsController<NSManagedObject>
+            resultController = controller as? NSFetchedResultsController<NSManagedObject>
         }
         CDSubscription(fetchPublisher: self, subscriber: AnySubscriber(subscriber))
     }

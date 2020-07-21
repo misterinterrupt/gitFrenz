@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct DRepository {
+struct DRepository: Hashable {
     let id: UUID
     let url: URL
     let name: String

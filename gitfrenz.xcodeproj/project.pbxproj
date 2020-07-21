@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA51E07124C11E7000647972 /* CDPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51E07024C11E7000647972 /* CDPublisher.swift */; };
+		BA51E07324C19FDC00647972 /* GHJSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51E07224C19FDC00647972 /* GHJSONCodable.swift */; };
 		BAC9C1BA24BFA1A500880029 /* FrenzModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1A624BF8CE900880029 /* FrenzModel.xcdatamodeld */; };
 		BAC9C1BD24BFA2EA00880029 /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B324BFA04E00880029 /* Friend+CoreDataClass.swift */; };
 		BAC9C1BE24BFA2EC00880029 /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9C1B224BFA04E00880029 /* Friend+CoreDataProperties.swift */; };
@@ -28,6 +29,7 @@
 		418EA87D12DFBEDBAA046C14 /* Pods-gitfrenz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitfrenz.debug.xcconfig"; path = "Target Support Files/Pods-gitfrenz/Pods-gitfrenz.debug.xcconfig"; sourceTree = "<group>"; };
 		A1B2B7289202204AF2BBE895 /* Pods-gitfrenz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gitfrenz.release.xcconfig"; path = "Target Support Files/Pods-gitfrenz/Pods-gitfrenz.release.xcconfig"; sourceTree = "<group>"; };
 		BA51E07024C11E7000647972 /* CDPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDPublisher.swift; sourceTree = "<group>"; };
+		BA51E07224C19FDC00647972 /* GHJSONCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHJSONCodable.swift; sourceTree = "<group>"; };
 		BAC9C1A724BF8CE900880029 /* FrenzModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FrenzModel.xcdatamodel; sourceTree = "<group>"; };
 		BAC9C1B224BFA04E00880029 /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAC9C1B324BFA04E00880029 /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				BAC9C1B424BFA04E00880029 /* Repository+CoreDataClass.swift */,
 				BAC9C1B524BFA04E00880029 /* Repository+CoreDataProperties.swift */,
 				BAC9C1A624BF8CE900880029 /* FrenzModel.xcdatamodeld */,
+				BA51E07224C19FDC00647972 /* GHJSONCodable.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC9C1BA24BFA1A500880029 /* FrenzModel.xcdatamodeld in Sources */,
+				BA51E07324C19FDC00647972 /* GHJSONCodable.swift in Sources */,
 				BAC9C1BF24BFA30600880029 /* Repository+CoreDataClass.swift in Sources */,
 				BAC9C1C024BFA30600880029 /* Repository+CoreDataProperties.swift in Sources */,
 				BAC9C1BD24BFA2EA00880029 /* Friend+CoreDataClass.swift in Sources */,
@@ -390,7 +394,7 @@
 				DEVELOPMENT_TEAM = 7CVP8N8AP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,7 +416,7 @@
 				DEVELOPMENT_TEAM = 7CVP8N8AP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

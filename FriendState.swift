@@ -40,6 +40,11 @@ public class FriendState: ObservableObject {
     
     public func selectPage(_ page: Page) {
         selectedPage = page
+        if selectedPage == .repos {
+            for friend in friends {
+                fetchFriendRepos(friend.githubUsername)
+            }
+        }
     }
     
     func setupCDPublishing() {
@@ -59,7 +64,7 @@ public class FriendState: ObservableObject {
         CDPublisher(request: Repository.fetchRequest(), context: CoreDataContext.shared.viewContext)
         .map {
             $0.map {
-                DRepository(id: $0.id!, url: $0.url!, name: $0.name!, lastCommit: $0.lastCommit!)
+                DRepository(id: $0.id!, url: $0.url ?? URL(string: $0.name!)!, name: $0.name!, lastCommit: Date())
             }
         }
         .receive(on: DispatchQueue.main)
@@ -69,10 +74,6 @@ public class FriendState: ObservableObject {
         }
         .store(in: &cancellables)
     }
-
-    
-
-    
 }
 
 // DAO-ish extension
@@ -87,8 +88,6 @@ extension FriendState {
         newFriend.githubUsername = ghUsername
 
         CoreDataContext.shared.saveChanges()
-
-        fetchFriendRepos(ghUsername)
     }
     
     public func removeFriend(_ name: String) {
@@ -118,18 +117,61 @@ extension FriendState {
         CoreDataContext.shared.saveChanges()
     }
     
+    private func addRepo(_ repo: GHJSONCodable.Repository) {
+        let newRepo = NSEntityDescription
+            .insertNewObject(forEntityName: "Repository",
+                             into: CoreDataContext.shared.viewContext) as! Repository
+        newRepo.id = UUID()
+        newRepo.name = repo.name
+
+        CoreDataContext.shared.saveChanges()
+    }
+
+    public func clearRepos() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Repository")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try CoreDataContext.shared.viewContext.persistentStoreCoordinator!.execute(deleteRequest, with: CoreDataContext.shared.viewContext)
+        } catch let error as NSError {
+            print("Couldn't delete all Repos \(error)")
+        }
+        CoreDataContext.shared.saveChanges()
+    }
+    
+}
+
+extension FriendState {
+    
     private func fetchFriendRepos(_ ghusername: String) {
-//        let url = "https://api.github.com/users/\(ghusername)"
-//        AF.request(url).responseJSON { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-//                debugPrint(json)
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        clearRepos()
+        if let url = URL(string:"https://api.github.com/users/\(ghusername)/repos?type=owner&sort=pushed") {
+            URLSession.shared.dataTaskPublisher(for: url)
+                .tryMap { output in
+                    guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
+                        throw HTTPError.statusCode
+                    }
+                    return output.data
+                }
+                .decode(type: [GHJSONCodable.Repository].self, decoder: JSONDecoder())
+                .receive(on: DispatchQueue.main)
+                .replaceError(with: [])
+                .eraseToAnyPublisher()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    }
+                }, receiveValue: { repos in
+//                    print(repos.count)
+                    for repo in repos {
+                        self.addRepo(repo)
+                    }
+                })
+                .store(in: &cancellables)
+        }
     }
 }
 
@@ -137,4 +179,8 @@ public enum Page {
     case friends
     case repos
     case activity
+}
+
+enum HTTPError: LocalizedError {
+    case statusCode
 }

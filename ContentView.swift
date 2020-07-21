@@ -12,6 +12,10 @@ struct ContentView: View {
     
     @EnvironmentObject var friendState: FriendState
     
+    init() {
+        UITableView.appearance().backgroundColor = .clear // tableview background
+        UITableViewCell.appearance().backgroundColor = .clear // cell background
+    }
     
     var body: some View {
         
@@ -208,8 +212,14 @@ struct ReposView: View {
         GeometryReader { geo in
             VStack(alignment: .center, spacing: 2.5) {
                 Text("Repos").font(.largeTitle).foregroundColor(Color(.white))
-                VStack(alignment: .leading, spacing: 2.5) {
-                    EmptyView()
+                    List(self.friendState.repositories, id: \.self) { (repo:DRepository) in
+                    VStack(alignment: .leading) {
+                        Text(repo.name)
+                            .foregroundColor(.gray).bold()
+                        Text(repo.url.absoluteString)
+                            .foregroundColor(.white)
+                            .font(.subheadline)
+                    }
                 }
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
             }
